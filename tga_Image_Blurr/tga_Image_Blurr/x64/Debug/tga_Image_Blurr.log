@@ -1,0 +1,4 @@
+﻿  ImageBlurrer.cpp
+C:\Users\hejtv\source\repos\tga_Image_Blurr\tga_Image_Blurr\ImageBlurrer.cpp(30,25): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\hejtv\source\repos\tga_Image_Blurr\tga_Image_Blurr\ImageBlurrer.cpp(69,25): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  tga_Image_Blurr.vcxproj -> C:\Users\hejtv\source\repos\tga_Image_Blurr\x64\Debug\tga_Image_Blurr.exe
