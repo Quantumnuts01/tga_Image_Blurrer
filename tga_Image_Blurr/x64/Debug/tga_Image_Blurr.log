@@ -1,0 +1,11 @@
+﻿  ImageParser.cpp
+C:\Users\hejtv\source\repos\tga_Image_Blurr\tga_Image_Blurr\ImageParser.cpp(135,29): warning C4244: '=': conversion from 'short' to 'unsigned char', possible loss of data
+C:\Users\hejtv\source\repos\tga_Image_Blurr\tga_Image_Blurr\ImageParser.cpp(139,29): warning C4244: '=': conversion from 'short' to 'unsigned char', possible loss of data
+C:\Users\hejtv\source\repos\tga_Image_Blurr\tga_Image_Blurr\ImageParser.cpp(146,29): warning C4244: '=': conversion from 'short' to 'unsigned char', possible loss of data
+C:\Users\hejtv\source\repos\tga_Image_Blurr\tga_Image_Blurr\ImageParser.cpp(150,30): warning C4244: '=': conversion from 'short' to 'unsigned char', possible loss of data
+C:\Users\hejtv\source\repos\tga_Image_Blurr\tga_Image_Blurr\ImageParser.cpp(154,30): warning C4244: '=': conversion from 'short' to 'unsigned char', possible loss of data
+C:\Users\hejtv\source\repos\tga_Image_Blurr\tga_Image_Blurr\ImageParser.cpp(158,30): warning C4244: '=': conversion from 'short' to 'unsigned char', possible loss of data
+  MainMenu.cpp
+  tga_Image_Blurr.cpp
+  Generating Code...
+  tga_Image_Blurr.vcxproj -> C:\Users\hejtv\source\repos\tga_Image_Blurr\x64\Debug\tga_Image_Blurr.exe
