@@ -6,7 +6,7 @@
 
 ## Compiler:
 
-> Visual studio Community 2022 v17.1.5
+> Visual studio Community 2022 v17.14.17
 
 ## Prepareation / Research:
 
