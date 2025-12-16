@@ -40,11 +40,15 @@ bool ImageParser::ReadImage(std::string Path, SImage* ReturnImage)
 
     //for RLE
     int ImageSize = tgaHeader.width * tgaHeader.height;
+
+    bool Is32BitImage = tgaHeader.bitsperpixel == 32;
+
     if (tgaHeader.datatypecode == 10)
     {
         for (size_t i = 0; i < ImageSize; i++)
         {
             unsigned char RGBAPixel[3];
+            unsigned char AlphaPixel[1];
             unsigned char PacketHeader[1];
             f.read(reinterpret_cast<char*>(PacketHeader), 1);
             bool NotRaw = PacketHeader[0] & (1 << 7);
@@ -52,9 +56,15 @@ bool ImageParser::ReadImage(std::string Path, SImage* ReturnImage)
 
             if (NotRaw)
             {
+                if (Is32BitImage)
+                    f.read(reinterpret_cast<char*>(AlphaPixel), 1);
+
                 f.read(reinterpret_cast<char*>(RGBAPixel), 3);
                 for (size_t j = 0; j < NumPixels; j++)
                 {
+                    if (Is32BitImage)
+                        RGBAPixels[i].A = AlphaPixel[0];
+
                     RGBAPixels[i].R = RGBAPixel[2];
                     RGBAPixels[i].G = RGBAPixel[1];
                     RGBAPixels[i].B = RGBAPixel[0];
@@ -66,7 +76,12 @@ bool ImageParser::ReadImage(std::string Path, SImage* ReturnImage)
             {
                 for (size_t j = 0; j < NumPixels; j++)
                 {
+                    if (Is32BitImage)
+                        f.read(reinterpret_cast<char*>(AlphaPixel), 1);
                     f.read(reinterpret_cast<char*>(RGBAPixel), 3);
+                    if (Is32BitImage)
+                        RGBAPixels[i].A = AlphaPixel[0];
+
                     RGBAPixels[i].R = RGBAPixel[2];
                     RGBAPixels[i].G = RGBAPixel[1];
                     RGBAPixels[i].B = RGBAPixel[0];
@@ -85,7 +100,7 @@ bool ImageParser::ReadImage(std::string Path, SImage* ReturnImage)
             for (size_t x = 0; x < tgaHeader.width; x++)
             {
                 // if it is an 32 bit image the alpha will be first to read so it needs to be read before the RGB
-                if (tgaHeader.bitsperpixel == 32)
+                if (Is32BitImage)
                 {
                     unsigned char AlphaPixel[1];
                     f.read(reinterpret_cast<char*>(AlphaPixel), 1);
